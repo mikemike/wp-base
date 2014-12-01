@@ -204,12 +204,19 @@ add_action( 'customize_register', 'tcx_register_theme_customizer' );
  */
 function grabLatLng( $wp_customize ){
 
-	$address = get_theme_mod( 'tcx_address_1' );
-	$address.= (empty(get_theme_mod( 'tcx_address_2' )) ? '' : ', '.get_theme_mod( 'tcx_address_2' ));
-	$address.= (empty(get_theme_mod( 'tcx_citytown' )) ? '' : ', '.get_theme_mod( 'tcx_citytown' ));
-	$address.= (empty(get_theme_mod( 'tcx_county' )) ? '' : ', '.get_theme_mod( 'tcx_county' ));
-	$address.= (empty(get_theme_mod( 'tcx_postcode' )) ? '' : ', '.get_theme_mod( 'tcx_postcode' ));
-	$address.= (empty(get_theme_mod( 'tcx_country' )) ? '' : ', '.get_theme_mod( 'tcx_country' ));
+	$address_1 = get_theme_mod( 'tcx_address_1' );
+	$address_2 = get_theme_mod( 'tcx_address_2' );
+	$citytown = get_theme_mod( 'tcx_citytown' );
+	$county = get_theme_mod( 'tcx_county' );
+	$postcode = get_theme_mod( 'tcx_postcode' );
+	$country = get_theme_mod( 'tcx_country' );
+
+	$address = $address_1;
+	$address.= (empty($address_2) ? '' : ', '.$address_2);
+	$address.= (empty($citytown) ? '' : ', '.$citytown);
+	$address.= (empty($county) ? '' : ', '.$county);
+	$address.= (empty($postcode) ? '' : ', '.$postcode);
+	$address.= (empty($country) ? '' : ', '.$country);
 
 	$string = str_replace (" ", "+", urlencode($address));
 	$details_url = "http://maps.googleapis.com/maps/api/geocode/json?address=".$string."&sensor=false";
