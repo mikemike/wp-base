@@ -17,11 +17,11 @@ Template Name: Contact
 					<strong>Head Office</strong><br>
 					<?php
 						$address = get_theme_mod( 'tcx_address_1' );
-						$address.= empty(get_theme_mod( 'tcx_address_2' )) ? '' : '<br>'.get_theme_mod( 'tcx_address_2' );
-						$address.= empty(get_theme_mod( 'tcx_citytown' )) ? '' : '<br>'.get_theme_mod( 'tcx_citytown' );
-						$address.= empty(get_theme_mod( 'tcx_county' )) ? '' : '<br>'.get_theme_mod( 'tcx_county' );
-						$address.= empty(get_theme_mod( 'tcx_postcode' )) ? '' : '<br>'.get_theme_mod( 'tcx_postcode' );
-						$address.= empty(get_theme_mod( 'tcx_country' )) ? '' : '<br>'.get_theme_mod( 'tcx_country' );
+						$address.= get_theme_mod( 'tcx_address_2' ) ? ', '.get_theme_mod( 'tcx_address_2' ) : '';
+						$address.= get_theme_mod( 'tcx_citytown' )	? ', '.get_theme_mod( 'tcx_citytown' ) : '';
+						$address.= get_theme_mod( 'tcx_county' ) 	? ', '.get_theme_mod( 'tcx_county' ) : '';
+						$address.= get_theme_mod( 'tcx_postcode' ) 	? ', '.get_theme_mod( 'tcx_postcode' ) : '';
+						$address.= get_theme_mod( 'tcx_country' ) 	? ', '.get_theme_mod( 'tcx_country' ) : '';
 						echo $address;
 					?>
 				</address>
