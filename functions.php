@@ -10,6 +10,9 @@ function register_main_menu() {
 }
 add_action( 'init', 'register_main_menu' );
 
+// Register Custom Navigation Walker
+require_once('wp_bootstrap_navwalker.php');
+
 /**
  * Register theme customizations.  Builds the side menu of the customizer.
  * @author Mike Griffiths
